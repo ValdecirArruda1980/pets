@@ -8,21 +8,25 @@ export const listPets = async (req: Request, res: Response) => {
   res.status(200).json(pets);
 };
 
-export const creatPet =  async(req: Request, res: Response) => {
-  const creatPet = await service.creatPet(req.body);
-  res.status(201).json(creatPet);
+export const createPet =  async(req: Request, res: Response) => {
+  const createdPet = await service.creatPet(req.body);
+  res.status(201).json(createdPet);
 };
 
 export const getPetById = async(req: Request, res: Response) => {
   const petId = parseInt(req.params.petId);
   const pet = await service.getPet(petId);
-  res.status
+  res.status(200).json(pet);
 };
 
 export const updatePetById = async (req: Request, res: Response) => {
-  const petId = parseInt(req.params.petId)
-  await service.updatePet
+  const petId = parseInt(req.params.petId);
+  await service.updatePet(petId, req.body);
+  res.status(204).json();
 };
 
 export const deletePetById = async(req: Request, res: Response) => {
+  const petId = parseInt(req.params.petId);
+  await service.deletePet (petId);
+  res.status(204).json();
 };
