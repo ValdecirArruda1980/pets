@@ -1,5 +1,7 @@
+import 'dotenv/config'
 import express from "express";
 import petsRouter from "./routes/petsRoutes";
+import  Sequelize  from "./config/database";
 
 const app = express();
 const port = 3000;
